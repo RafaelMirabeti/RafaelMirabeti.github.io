@@ -1,10 +1,171 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
+
 <head>
-  <title>Meu site</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logistics Vision | Telemetria de Frota</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Outfit:wght@600;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
+
 <body>
-  <h1>Olá, mundo! 🌍</h1>
-  <p>Meu site no GitHub Pages está funcionando!</p>
+
+    <nav>
+        <div class="container nav-content">
+            <div class="logo">TRUCK<span>VISION</span></div>
+            <div class="nav-links">
+                <a href="#home">Cenário</a>
+                <a href="#arquitetura">Arquitetura</a>
+                <a href="#otimizacao">Otimizar Rotas</a>
+                <a href="#contingencia">Contingência</a>
+                <a href="#retencao">Retenção Histórica</a>
+                <a href="#simulacao">Simulação</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="snap-container">
+
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container">
+                <h1>Missão: Logística com Big Data</h1>
+                <p><strong>Cenário:</strong> Gestão e monitoramento de <strong>5.000 caminhões GPS</strong>. Descubra
+                    como o Big Data revoluciona a logística em 4 passos.</p>
+                <a href="#simulacao" class="btn-start"
+                    style="display:inline-block; width:auto; text-decoration:none; margin-top: 1rem;">Acessar Dashboard
+                    GPS</a>
+            </div>
+        </section>
+
+        <!-- Section 1: Arquitetura -->
+        <section id="arquitetura">
+            <div class="container">
+                <div class="section-content">
+                    <div class="section-text">
+                        <div class="number">01</div>
+                        <h2>Escolher Arquitetura</h2>
+                        <p>O primeiro passo é definir a arquitetura capaz de processar os dados. Para lidar com 5.000
+                            caminhões enviando coordenadas GPS simultaneamente, o <strong>Big Data</strong> interage por
+                            meio de arquiteturas como Kappa ou Lambda. Sistemas como o Apache Kafka recebem fluxos
+                            massivos de dados sem lentidão, prevendo falhas em tempo real.</p>
+                    </div>
+                    <div class="visual-box">
+                        <div class="viz-element" style="color: var(--accent-blue);">[ 452.1TB Ingeridos/Hr ]</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Otimização -->
+        <section id="otimizacao">
+            <div class="container">
+                <div class="section-content">
+                    <div class="visual-box" style="order: -1;">
+                        <div class="viz-element" style="color: var(--success);">[ Rota AI Otimizada ]</div>
+                    </div>
+                    <div class="section-text">
+                        <div class="number">02</div>
+                        <h2>Otimizar Rotas</h2>
+                        <p>Como o Big Data melhora as rotas? Ele não analisa apenas a distância. Nossos sistemas cruzam
+                            dados geológicos da estrada (subida agressiva) com a carga atual para evitar vias que
+                            queimem combustível excessivo, traçando rotas suaves e mantendo a máquina fria e eficiente.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Plano de Contingência -->
+        <section id="contingencia">
+            <div class="container">
+                <div class="section-content">
+                    <div class="section-text">
+                        <div class="number">03</div>
+                        <h2>Plano de Contingência</h2>
+                        <p>Se o tráfego a 50km de distância colapsar, a frota não sente o impacto. O Big Data identifica
+                            a anomalia e ativa protocolos de autocuração em tempo real enviando as coordenadas de
+                            desvios estratégicos para todos os 5.000 caminhões pesados simultaneamente.</p>
+                    </div>
+                    <div class="visual-box">
+                        <div class="viz-element" style="color: var(--accent);">[ Desvio Prioritário ]</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Retenção Histórica -->
+        <section id="retencao">
+            <div class="container">
+                <div class="section-content">
+                    <div class="visual-box" style="order: -1;">
+                        <div class="viz-element" style="color: var(--warning);">[ DATA LAKE ARMAZENA DADOS
+                            GERADOS PELOS CAMINHÕES. 🚚📊 ]</div>
+                    </div>
+                    <div class="section-text">
+                        <div class="number">04</div>
+                        <h2>Retenção Histórica</h2>
+                        <p>Onde estão os atrasos recorrentes no último ano? Quais dias da semana os caminhões atrasam
+                            mais? Retendo o histórico vitalício dos 5.000 rastreadores em Data Lakes, a inteligência
+                            artificial cria predições precisas, permitindo planejar os próximos meses logísticos com
+                            base em fatos e não intuição.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Simulação Realista -->
+        <section id="simulacao" class="simulation-section">
+            <div id="simulation-viewport">
+
+                <!-- Leaflet Interactive Map Container (Behind the UI) -->
+                <div id="map"></div>
+
+                <!-- Telemetry HUD -->
+                <div class="sim-ui">
+                    <h3>Dashboard Veicular</h3>
+
+                    <div class="telemetry-grid">
+                        <div class="data-widget">
+                            <span>Frota / ID</span>
+                            <strong>🚛 TB-994</strong>
+                        </div>
+                        <div class="data-widget">
+                            <span>Status Global</span>
+                            <strong id="status-text" class="status-ready">Aguardando</strong>
+                        </div>
+                        <div class="data-widget">
+                            <span>Carga Atual</span>
+                            <strong>15 Tons</strong>
+                        </div>
+                        <div class="data-widget">
+                            <span>Comando</span>
+                            <strong>Manual</strong>
+                        </div>
+                    </div>
+
+                    <div id="sim-logs">
+                        <div class="log-item">[Sys] Conectando satélites...</div>
+                        <div class="log-item">[Sys] 5.000 veículos monitorados.</div>
+                    </div>
+
+                    <button id="btn-start-sim" class="btn-start">>> TRANSMITIR ROTA</button>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Leaflet JS Library -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>
